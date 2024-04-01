@@ -24,6 +24,7 @@ class Validation:
         else :
           return True
 
+
 class Library:
       def __init__(self) :
         try:
@@ -43,7 +44,8 @@ class Library:
               print("Book List:")
               for book in books:
                   book_info = book.split(',')
-                  print(book_info[0], book_info[1])
+                  print(book_info)
+                  #print(book_info[0], book_info[1])
             else:
                 print("No books found.")
 
@@ -79,19 +81,26 @@ class Library:
 
 
       def remove_book(self):
-            word = input(" Enter the book title: ")
-            try:
-              with open("books.txt", "r") as file:
-                  books = file.readlines()
+            word = input("Enter the book title: ").strip()  # Kullanıcı girişinden önce ve sonra boşlukları kaldır
+            found = False
+            updated_books = []  # Silinmemiş kitapları saklamak için bir liste
 
-              with open("books.txt", "w") as file:
-                  for book in books :
-                    if word not in book.strip().split(",")[0]:
-                       file.write(book)
-                       file.write("\n")
-
-            except FileNotFoundError:
-                print("File not found. Please add book first.")
+            with open("books.txt", "r") as file:
+              books = file.readlines()
+            for book in books:
+              # Kitap adını ve diğer bilgileri ayırma
+              title = book.strip().split(",")[0].split(":")[1].strip()  # Kitap adının etrafındaki boşlukları temizle
+              if word != title:
+                updated_books.append(book)
+              else:
+                found = True
+              # Eğer bir kitap silinmişse, dosyayı güncellenmiş listeye göre yeniden yaz
+              if found:
+                with open("books.txt", "w") as file:
+                  file.writelines(updated_books)
+                print(f"'{word}' titled book has been successfully removed.")
+              else:
+                print(f"No book found with the title '{word}'.")
 
 
 lib = Library()
@@ -101,7 +110,6 @@ while True:
         choice = input("Enter your choice: ")
         try:
             type_casting = Validation.int_type_casting(choice)
-
             if type(type_casting) is int  :
 
                range_value = Validation.check_value_range(type_casting)
@@ -124,6 +132,5 @@ while True:
                       break
                   else:
                       print("Invalid choice. Please enter a valid option.")
-
         except ValueError :
             print("Invalid choice. Please enter a valid option.")
