@@ -1,7 +1,12 @@
-# library_management_project
-> Akbank Python Bootcamp' de yaptığımız Library Management Console Projesidir
-### Python'da Öğrendiklerim
-*Dosya okuma
-*Dosyaya yazma
-*Dosya yoksa oluşturma ve ardından ekleme
-*
+# Library Management Console Project With Akbank Python Bootcamp
+
+## The purpose of the project
+* The user delete a book by entering the book title.
+* The user add a new book
+* The user list all book
+* And all these operations take place in a file named 'Book' 
+
+### Learn With Python
+* Reading from a file
+* Writing to a file
+* Creating a file if it doesn't exist and then appending
