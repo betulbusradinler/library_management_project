@@ -10,3 +10,6 @@
 * Reading from a file
 * Writing to a file
 * Creating a file if it doesn't exist and then appending
+
+### Output
+![Output](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWxrZjIxbnE2eHo0MDFveGpjaGNsenkzcHdrZzk5amhrNGViNmZxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1E28LpUMvObCiELly1/source.gif)
