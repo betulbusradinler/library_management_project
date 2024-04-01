@@ -19,7 +19,7 @@ class Validation:
 class Library:
       def __init__(self) :
         try:
-          self.file = open("books.txt", "a+")
+          self.file = open("books.txt", "a+", encoding='utf-8')
         except FileNotFoundError:
             print("File was not found")
 
@@ -29,7 +29,7 @@ class Library:
 
 
       def list_books(self):
-           with open('books.txt', 'r') as file:
+           with open('books.txt', 'r', encoding='utf-8') as file:
             books = file.read().splitlines()
             if books:
               print("Book List:")
@@ -76,7 +76,7 @@ class Library:
             found = False
             updated_books = []  # Silinmemiş kitapları saklamak için bir liste
 
-            with open("books.txt", "r") as file:
+            with open("books.txt", "r", encoding='utf-8') as file:
               books = file.readlines()
             for book in books:
               # Kitap adını ve diğer bilgileri ayırma
@@ -88,7 +88,7 @@ class Library:
             
             # Eğer bir kitap silinmişse, dosyayı güncellenmiş listeye göre yeniden yaz
             if found:
-               with open("books.txt", "w") as file:
+               with open("books.txt", "w", encoding='utf-8') as file:
                  file.writelines(updated_books)
                print(f"'{word}' titled book has been successfully removed.")
             else:
